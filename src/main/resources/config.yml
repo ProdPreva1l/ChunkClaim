@@ -1,0 +1,12 @@
+# Extra Debug Information, you shouldn't need to use this unless instructed
+debug: false
+
+mongo:
+
+
+# Hooks into other plugins
+hooks:
+  # My plugin that allows you to make "Zone Borders" for multi instance survival servers
+  # <SPIGOT LINK>
+  advanced-server-zones: false
+
