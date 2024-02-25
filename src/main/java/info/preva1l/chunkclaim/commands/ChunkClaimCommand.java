@@ -13,11 +13,12 @@ public class ChunkClaimCommand extends Command {
     @CommandArgs(name = "chunkclaim", aliases = {"cclaim, cc"}, async = true, inGameOnly = false)
     public void execute(CommandArguments command) {
         CommandSender sender = command.getSender();
-        SubCommand subCommand = SubCommand.INFO;
+        SubCommand subCommand;
         try {
             subCommand = SubCommand.valueOf(command.getArgs().length > 0 ? command.getArgs()[0] : "info");
         } catch (EnumConstantNotPresentException e) {
             sender.sendMessage(Text.message("&cSub-command not found!"));
+            return;
         }
 
         switch(subCommand) {

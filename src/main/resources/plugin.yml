@@ -1,4 +1,8 @@
 name: ChunkClaim
+description: Advanced chunk claiming that supports X-Server
 version: '${version}'
 main: info.preva1l.chunkclaim.ChunkClaim
 api-version: '1.16'
+
+libraries:
+  - 'fr.mrmicky:FastInv:3.0.4'

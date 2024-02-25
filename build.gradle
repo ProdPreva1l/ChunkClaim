@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'info.preva1l'
@@ -14,11 +15,8 @@ repositories {
 
 dependencies {
     compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
+    compileOnly 'fr.mrmicky:FastInv:3.0.4'
 
-    implementation 'fr.mrmicky:FastInv:3.0.4'
-
-
-    implementation files('libs/SimpleMongoHelper.jar')
     compileOnly files('libs/AdvancedServerZones.jar')
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
@@ -50,4 +48,10 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+}
+
+shadowJar {
+    relocate '', ''
+    
+    minimize()
 }

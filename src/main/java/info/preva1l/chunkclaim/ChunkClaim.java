@@ -5,6 +5,8 @@ import info.preva1l.CollectionHelper;
 import info.preva1l.SimpleMongoHelper;
 import info.preva1l.chunkclaim.config.Config;
 import info.preva1l.chunkclaim.config.Menus;
+import info.preva1l.chunkclaim.data.impl.ClaimMemberStorage;
+import info.preva1l.chunkclaim.data.settings.ClaimSettingsManager;
 import info.preva1l.chunkclaim.hooks.HookManager;
 import info.preva1l.chunkclaim.utils.BasicConfig;
 import info.preva1l.chunkclaim.utils.commands.CommandManager;
@@ -19,12 +21,14 @@ public final class ChunkClaim extends JavaPlugin {
     private CacheHandler cacheHandler;
     private CollectionHelper collectionHelper;
 
+    ClaimMemberStorage claimMemberStorage;
+
     private BasicConfig configFile;
     private BasicConfig menusFile;
 
 
+    private ClaimSettingsManager claimSettingsManager;
     private CommandManager commandManager;
-
 
     @Override
     public void onEnable() {
@@ -33,6 +37,7 @@ public final class ChunkClaim extends JavaPlugin {
         loadCommands();
         loadFiles();
         loadDatabase();
+        loadStorage();
 
         new HookManager().registerHooks(this);
     }
@@ -67,6 +72,12 @@ public final class ChunkClaim extends JavaPlugin {
         );
         cacheHandler = new CacheHandler(simpleMongoHelper);
         collectionHelper = new CollectionHelper(simpleMongoHelper, cacheHandler);
+    }
+
+    private void loadStorage() {
+        claimMemberStorage = new ClaimMemberStorage();
+
+        claimSettingsManager = new ClaimSettingsManager();
     }
 
     public static ChunkClaim i() {
