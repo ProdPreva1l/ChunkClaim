@@ -7,12 +7,16 @@ import info.preva1l.chunkclaim.utils.Text;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Collections;
 import java.util.List;
 
 @Getter
 @AllArgsConstructor
 public enum Config {
     HOOK_ASZ("hooks.advanced-server-zones", false),
+
+    HOOK_WORLDGUARD_ENABLED("hooks.worldguard.enabled", false),
+    HOOK_WORLDGUARD_PROTECTED_REGIONS("hooks.worldguard.protected-regions", Collections.singletonList("")),
 
     /*
         Database

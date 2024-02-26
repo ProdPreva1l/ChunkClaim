@@ -9,13 +9,18 @@ version = '1.0'
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
-    maven { url "https://repo.papermc.io/repository/maven-public/" }
-    maven { url "https://oss.sonatype.org/content/groups/public/" }
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url "https://maven.enginehub.org/repo/" }
+    maven { url 'https://oss.sonatype.org/content/groups/public/' }
 }
 
 dependencies {
-    compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
+    compileOnly 'io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT'
     compileOnly 'fr.mrmicky:FastInv:3.0.4'
+
+    compileOnly "com.sk89q.worldguard:worldguard-bukkit:7.1.0-SNAPSHOT"
+
+    compileOnly 'org.mongodb:mongodb-driver:1.14.12'
 
     compileOnly files('libs/AdvancedServerZones.jar')
 
@@ -23,7 +28,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-def targetJavaVersion = 8
+def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion

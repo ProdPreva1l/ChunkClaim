@@ -7,6 +7,14 @@ mongo:
 # Hooks into other plugins
 hooks:
   # My plugin that allows you to make "Zone Borders" for multi instance survival servers
-  # <SPIGOT LINK>
+  # This plugin is not public!
+  # It is given out for free with support if I like your servers idea,
+  #   and you have a genuine use for it.
   advanced-server-zones: false
 
+  # Define regions where the player should not be able to claim
+  # https://dev.bukkit.org/projects/worldguard
+  world-guard:
+    enabled: false
+    protected-regions:
+      - "spawn"

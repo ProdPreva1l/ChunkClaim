@@ -5,6 +5,7 @@ import info.preva1l.chunkclaim.ChunkClaim;
 import info.preva1l.chunkclaim.data.models.Claim;
 import info.preva1l.chunkclaim.data.models.ClaimMember;
 import info.preva1l.chunkclaim.data.models.ClaimProfile;
+import info.preva1l.chunkclaim.data.models.ClaimableChunk;
 import info.preva1l.chunkclaim.utils.data.StorageHelper;
 import org.bson.Document;
 import org.bukkit.Chunk;
