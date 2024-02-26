@@ -20,7 +20,7 @@ dependencies {
 
     compileOnly "com.sk89q.worldguard:worldguard-bukkit:7.1.0-SNAPSHOT"
 
-    compileOnly 'org.mongodb:mongodb-driver:1.14.12'
+    compileOnly 'org.mongodb:mongodb-driver:3.12.14'
 
     compileOnly files('libs/AdvancedServerZones.jar')
 

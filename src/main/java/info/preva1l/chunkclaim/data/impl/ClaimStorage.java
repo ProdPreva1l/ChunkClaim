@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class ClaimStorage {
-    public Claim getClaim(String server, Chunk chunk) {
+    public Claim getClaim(String server, ClaimableChunk chunk) {
         Document filter = new Document("claimID", StorageHelper.serializeID(server, chunk));
         Document claimDocument = ChunkClaim.i().getCollectionHelper().getCollection("chunkclaim_claim_storage").find(filter).first();
         if (claimDocument == null) {
@@ -37,7 +37,7 @@ public class ClaimStorage {
             }
 
             @Override
-            public List<Chunk> chunks() {
+            public List<ClaimableChunk> chunks() {
                 return null;
             }
 
