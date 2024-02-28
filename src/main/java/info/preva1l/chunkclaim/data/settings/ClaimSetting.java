@@ -1,6 +1,5 @@
 package info.preva1l.chunkclaim.data.settings;
 
-import info.preva1l.chunkclaim.ChunkClaim;
 import lombok.Getter;
 
 import java.util.Arrays;

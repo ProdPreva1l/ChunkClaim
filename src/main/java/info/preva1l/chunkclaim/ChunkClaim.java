@@ -1,8 +1,14 @@
 package info.preva1l.chunkclaim;
 
+import fr.mrmicky.fastinv.FastInvManager;
+import info.preva1l.chunkclaim.commands.ChunkClaimCommand;
+import info.preva1l.chunkclaim.commands.ClaimCommand;
 import info.preva1l.chunkclaim.config.Config;
+import info.preva1l.chunkclaim.config.Lang;
 import info.preva1l.chunkclaim.config.Menus;
 import info.preva1l.chunkclaim.data.impl.ClaimMemberStorage;
+import info.preva1l.chunkclaim.data.impl.ClaimStorage;
+import info.preva1l.chunkclaim.data.models.Claim;
 import info.preva1l.chunkclaim.data.settings.ClaimSettingsManager;
 import info.preva1l.chunkclaim.hooks.HookManager;
 import info.preva1l.chunkclaim.utils.BasicConfig;
@@ -21,10 +27,12 @@ public final class ChunkClaim extends JavaPlugin {
     private CacheHandler cacheHandler;
     private CollectionHelper collectionHelper;
 
-    ClaimMemberStorage claimMemberStorage;
+    private ClaimStorage claimStorage;
+    private ClaimMemberStorage claimMemberStorage;
 
     private BasicConfig configFile;
     private BasicConfig menusFile;
+    private BasicConfig langFile;
 
 
     private ClaimSettingsManager claimSettingsManager;
@@ -33,6 +41,8 @@ public final class ChunkClaim extends JavaPlugin {
     @Override
     public void onEnable() {
         INSTANCE = this;
+
+        FastInvManager.register(this);
 
         loadCommands();
         loadFiles();
@@ -50,15 +60,20 @@ public final class ChunkClaim extends JavaPlugin {
     private void loadCommands() {
         commandManager = new CommandManager(this);
 
+        new ChunkClaimCommand();
+        new ClaimCommand();
+
         commandManager.getLoadedCommands().forEach(command -> getLogger().info((command.getAssigned().async() ? "Async " : "") + "Command Loaded: " + command.getAssigned().name()));
     }
 
     private void loadFiles() {
         configFile = new BasicConfig(this, "config.yml");
         menusFile = new BasicConfig(this, "menus.yml");
+        langFile = new BasicConfig(this, "lang.yml");
 
         Config.loadDefault();
         Menus.loadDefault();
+        Lang.loadDefault();
     }
 
     private void loadDatabase() {
@@ -75,6 +90,7 @@ public final class ChunkClaim extends JavaPlugin {
     }
 
     private void loadStorage() {
+        claimStorage = new ClaimStorage();
         claimMemberStorage = new ClaimMemberStorage();
 
         claimSettingsManager = new ClaimSettingsManager();

@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginDescriptionFile;
 
 public class ChunkClaimCommand extends Command {
-    @CommandArgs(name = "chunkclaim", aliases = {"cclaim, cc"}, async = true, inGameOnly = false)
+    @CommandArgs(name = "chunkclaim", aliases = {"cc"}, inGameOnly = false)
     public void execute(CommandArguments command) {
         CommandSender sender = command.getSender();
         SubCommand subCommand;
@@ -31,7 +31,8 @@ public class ChunkClaimCommand extends Command {
                 sender.sendMessage(Text.message("&aConfig Reloaded!"));
                 return;
             case HELP:
-
+                sender.sendMessage(Text.message("&aChunkClaim &fby Preva1l &aCommands"));
+                sender.sendMessage(Text.message("\uE212"));
                 return;
             case INFO:
                 PluginDescriptionFile pdf = plugin.getDescription();

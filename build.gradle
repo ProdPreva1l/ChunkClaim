@@ -15,16 +15,17 @@ repositories {
 }
 
 dependencies {
+    implementation 'fr.mrmicky:FastInv:3.0.4'
+
     compileOnly 'io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT'
-    compileOnly 'fr.mrmicky:FastInv:3.0.4'
 
     compileOnly "com.sk89q.worldguard:worldguard-bukkit:7.1.0-SNAPSHOT"
-
-    compileOnly 'org.mongodb:mongodb-driver:3.12.14'
-
     compileOnly files('libs/AdvancedServerZones.jar')
 
+    compileOnly 'org.mongodb:mongodb-driver:3.12.14'
     compileOnly 'org.projectlombok:lombok:1.18.24'
+
+
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
@@ -56,6 +57,7 @@ processResources {
 }
 
 shadowJar {
+    relocate 'fr.mrmicky.fastinv', 'info.preva1l.chunkclaim.libraries'
 
     minimize()
 }

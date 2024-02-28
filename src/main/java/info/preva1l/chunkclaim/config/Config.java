@@ -13,6 +13,11 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public enum Config {
+    DEBUG("debug", false),
+    SERVER_NAME("server-name", "server-01"),
+    /*
+        Hooks
+     */
     HOOK_ASZ("hooks.advanced-server-zones", false),
 
     HOOK_WORLDGUARD_ENABLED("hooks.worldguard.enabled", false),
@@ -22,7 +27,7 @@ public enum Config {
         Database
      */
     MONGO_HOST("mongo.host", "127.0.0.1"),
-    MONGO_PORT("mongo.username", 27017),
+    MONGO_PORT("mongo.port", 27017),
     MONGO_USERNAME("mongo.username", "username"),
     MONGO_PASSWORD("mongo.password", "password"),
     MONGO_DATABASE("mongo.database", "database"),

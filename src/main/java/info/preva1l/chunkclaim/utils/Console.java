@@ -1,6 +1,7 @@
 package info.preva1l.chunkclaim.utils;
 
 import info.preva1l.chunkclaim.ChunkClaim;
+import info.preva1l.chunkclaim.config.Config;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Bukkit;
 
@@ -17,6 +18,7 @@ public class Console {
         plugin.getLogger().severe(message);
     }
     public void debug(String message) {
+        if (!Config.DEBUG.toBoolean()) return;
         plugin.getLogger().severe("[DEBUG] " + message);
         Bukkit.getOnlinePlayers().forEach(player -> {
             if (player.hasPermission("chunkclaim.debug")) {

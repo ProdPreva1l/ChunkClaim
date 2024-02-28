@@ -1,8 +1,15 @@
 # Extra Debug Information, you shouldn't need to use this unless instructed
 debug: false
 
-mongo:
+server-name: "server-01"
 
+mongo:
+  host: "127.0.0.1"
+  port: 27017
+  username: "username"
+  password: "password"
+  database: "ChunkClaim"
+  auth-db: "authDB"
 
 # Hooks into other plugins
 hooks:
@@ -14,7 +21,7 @@ hooks:
 
   # Define regions where the player should not be able to claim
   # https://dev.bukkit.org/projects/worldguard
-  world-guard:
+  worldguard:
     enabled: false
     protected-regions:
       - "spawn"
